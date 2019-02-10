@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>답변항목 생성/수정</h1>
+	{% if error%}
+	<!--  style : css코드를 입력할 수 있는 공간,
+	color : 글씨 색을 지정하는 속성 -->
+		<p style = "color:red;">{{error}}</p>
+	{% endif %}
+	<form action="" method="POST">
+		{% csrf_token %}
+		<table>
+			{{i}}
+			<!-- i변수가 table형태로 이루어짐 -->
+		</table>
+		<input type = "submit" value="갱신">
+	</form>
+	<a href = "{% url 'vote:index' %}"></a>
+</body>
+</html>

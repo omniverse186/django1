@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>{{q.name}}</h1>
+	<p>{{q.date}}</p>
+	<form action="{% url 'vote:vote' %}" method="POST">
+		{% csrf_token %}
+		<!-- csrf_token : csrf 공격 방지하기 위한 웹서버가 발급 해주는 일회용 키 -->
+		{% for c in cList %}
+			<input type = "radio" name='a' value={{c.id}}>
+			<label>{{c.name}}</label>
+			<a href="{% url 'vote:cu' c.id %}">수정</a>
+			<a href="{% url 'vote:cd' c.id %}">삭제</a>
+			<br>
+		{% endfor %} 
+		<input type="submit" value="투표하기">
+	</form>
+	<a href="{% url 'vote:index' %}">메인페이지로 돌아가기</a>
+</body>
+</html>

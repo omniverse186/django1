@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>질문 등록 페이지</h1>
+<form action = "" method = "POST">
+	{%  csrf_token %}
+	
+	{{ f.as_p }}
+	
+	<input type="submit" value="질문 생성">
+</form>
+<a href = "{% url 'vote:index' %}">메인 페이지로 돌아가기</a>
+</body>
+</html>
